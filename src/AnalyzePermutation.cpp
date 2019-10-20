@@ -8,8 +8,6 @@
 #include <iostream>
 #include <string>
 
-//TODO!!!
-
 using namespace std;
 
 void AnalyzePermutation::analyze(Drone& d){
@@ -22,6 +20,16 @@ void AnalyzePermutation::analyze(Drone& d){
 	cout << d.getPropeller()->getName() << endl;
 }
 
-void AnalyzePermutation::addMetric(MetricInterface *m){}
+void AnalyzePermutation::addMetric(MetricInterface *m){
+	this->metrics.push_back(m);
+}
 
-void AnalyzePermutation::removeMetric(MetricInterface *m){}
+void AnalyzePermutation::removeMetric(MetricInterface *m){
+	vector<MetricInterface*>::itterator loc;
+	
+	loc = find(metrics.begin(), metrics.end(), m);
+	
+	if(loc != metrics.end()){
+		metrics.erase(loc);
+	}
+}

@@ -1,0 +1,3 @@
+Resources, which will be copied to the build directory.
+
+Currently, this is just a placeholder....

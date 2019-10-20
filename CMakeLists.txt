@@ -58,6 +58,7 @@ add_library( Drone
 set( DRONEOPTIMIZE_SOURCES
 	${SOURCE_DIRECTORY}/GeneratePermutations.cpp
 	${SOURCE_DIRECTORY}/AnalyzePermutation.cpp
+	${SOURCE_DIRECTORY}/DefaultConfig.cpp
 	${SOURCE_DIRECTORY}/Metric/MetricInterface.cpp
 	${SOURCE_DIRECTORY}/Metric/TotalMass.cpp
 )
@@ -65,6 +66,7 @@ set( DRONEOPTIMIZE_SOURCES
 set( DRONEOPTIMIZE_INCLUDES
 	${INCLUDE_DIRECTORY}/GeneratePermutations.hpp
 	${INCLUDE_DIRECTORY}/AnalyzePermutation.hpp
+	${INCLUDE_DIRECTORY}/DefaultConfig.hpp
 	${INCLUDE_DIRECTORY}/Metric/MetricInterface.hpp
 	${INCLUDE_DIRECTORY}/Metric/TotalMass.hpp
 )

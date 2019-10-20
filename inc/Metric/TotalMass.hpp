@@ -7,12 +7,12 @@
 #include <Metric/MetricInterface.hpp>
 #include <Drone.hpp>
 
-class TotalMass : MetricInterface {
+class TotalMass : public MetricInterface {
 private :
 public :
 	TotalMass();
 	
-	float calculate(Drone *d);
+	float calculate(Drone &d);
 };
 
 #endif //_TOTALMASS_HPP

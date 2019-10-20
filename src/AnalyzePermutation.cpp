@@ -10,6 +10,8 @@
 
 using namespace std;
 
+
+
 void AnalyzePermutation::analyze(Drone& d){
 	cout << d.getFlightController()->getName() << "\t";
 	cout << d.getElectronicSpeedController()->getName() << "\t";
@@ -18,6 +20,10 @@ void AnalyzePermutation::analyze(Drone& d){
 	cout << d.getMotor()->getName() << "\t";
 	cout << d.getPowerDistributionBoard()->getName() << "\t";
 	cout << d.getPropeller()->getName() << endl;
+	
+	for(int i=0;i<metrics.size();++i){
+		cout << metrics[i]->getName() << " : " << metrics[i]->calculate(d) << endl;
+	}
 }
 
 void AnalyzePermutation::addMetric(MetricInterface *m){
@@ -25,7 +31,7 @@ void AnalyzePermutation::addMetric(MetricInterface *m){
 }
 
 void AnalyzePermutation::removeMetric(MetricInterface *m){
-	vector<MetricInterface*>::itterator loc;
+	vector<MetricInterface*>::iterator loc;
 	
 	loc = find(metrics.begin(), metrics.end(), m);
 	

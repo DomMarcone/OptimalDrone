@@ -17,6 +17,8 @@
 #include <Part/Propeller.hpp>
 #include <Part/Kit.hpp>
 
+#include <DefaultConfig.hpp>
+
 #include <vector>
 #include <string>
 #include <iostream>
@@ -72,6 +74,8 @@ void main(){
 	
 	cout << "TestGenerate - Drone Optimizer Test" << endl;
 	cout << "Populating vector..." << endl;
+	
+	defaultConfig(ap);
 	
 	populate_vector(partVector);
 	cout << "Part vector filled with " << partVector.size() << " parts." << endl;

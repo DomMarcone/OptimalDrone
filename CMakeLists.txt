@@ -62,6 +62,7 @@ set( DRONEOPTIMIZE_SOURCES
 	${SOURCE_DIRECTORY}/Metric/MetricInterface.cpp
 	${SOURCE_DIRECTORY}/Metric/TotalMass.cpp
 	${SOURCE_DIRECTORY}/Metric/TotalCost.cpp
+	${SOURCE_DIRECTORY}/Metric/utils.cpp
 )
 
 set( DRONEOPTIMIZE_INCLUDES
@@ -71,6 +72,7 @@ set( DRONEOPTIMIZE_INCLUDES
 	${INCLUDE_DIRECTORY}/Metric/MetricInterface.hpp
 	${INCLUDE_DIRECTORY}/Metric/TotalMass.hpp
 	${INCLUDE_DIRECTORY}/Metric/TotalCost.hpp
+	${INCLUDE_DIRECTORY}/Metric/utils.hpp
 )
 
 add_library( DroneOptimize 

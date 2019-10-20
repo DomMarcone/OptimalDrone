@@ -15,20 +15,12 @@
 
 #include <Drone.hpp>
 
+#include <Metric/utils.hpp>
+
 TotalMass::TotalMass(){
 	setName("mass");
 }
 
 float TotalMass::calculate(Drone &d){
-	float result = 0.f;
-	
-	result += d.getFlightController()->getMass();
-	result += d.getElectronicSpeedController()->getMass();
-	result += d.getBattery()->getMass();
-	result += d.getFrame()->getMass();
-	result += d.getMotor()->getMass();
-	result += d.getPowerDistributionBoard()->getMass();
-	result += d.getPropeller()->getMass();
-
-	return result;
+	return getMass(d);
 }

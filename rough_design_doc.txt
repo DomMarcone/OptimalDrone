@@ -1,0 +1,28 @@
+//rough_design_doc.txt
+
+This software is to look for a parts.xml file, which should contain a list of parts which are attainable to the user. It will parse the file into a part structure, then build every possible permutation of parts.
+
+Each permutation will be tested under various metrics, such as estimated flight time, carrying capacity, acceleration, or any other test which can be calculated from part specifications.
+
+PartInterface (class)
+-Each part can contain various sub-parts. This should account for individual parts as well as kits, and composite parts such as camera+transmitter combos, and pdb's which are built into the flight controller.
+
+-It's attributes will contain name, cost, type_flags, and potentially a list of subparts
+
+
+Classes which will inheirit from PartInterface
+-Frame
+-Motor
+-ElectronicSpeedController
+-FlightController
+-PowerDistributionBoard
+-Battery
+-Propellers
+-VideoAntenna
+-VideoTransmitter
+-VideoCamera
+
+Parts we'll ignore
+-Transmitter
+-Goggles
+

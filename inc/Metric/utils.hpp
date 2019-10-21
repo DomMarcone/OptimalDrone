@@ -9,4 +9,8 @@
 
 float getMass(Drone& d);
 
+float getMotorPower(Drone& d);
+
+float getStaticThrust(Drone& d);
+
 #endif //_METRIC_UTILS_HPP

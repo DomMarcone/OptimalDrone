@@ -14,10 +14,22 @@
 
 #include <Drone.hpp>
 
+#include <cmath>
+
+
+#define UTILS_PI 3.14159265359f
+
+#define UTILS_GUESSED_PROP_EFFICIENCY 0.6f
+#define UTILS_GUESSED_ELEC_EFFICIENCY 0.95f
+
+#define UTILS_AIR_DENSITY 1.225f // kg/m3
+
+#define UTILS_ETERS_PER_INCH 0.0254f;
+
+inline float inchToMeter(float i){	return i * UTILS_ETERS_PER_INCH;	}
+
 float getMass(Drone& d){
-	float result = 0.f;
-	
-	result += d.getFlightController()->getMass();
+	float result = d.getFlightController()->getMass();
 	result += d.getElectronicSpeedController()->getMass();
 	result += d.getBattery()->getMass();
 	result += d.getFrame()->getMass();
@@ -28,3 +40,20 @@ float getMass(Drone& d){
 	return result;
 }
 
+float getMotorPower(Drone& d){
+	return 1.0;//TODO
+}
+
+float getStaticThrust(Drone& d){
+	//Based off of the equations in https://aviation.stackexchange.com/a/8822
+	float inside_cuberoot = 
+		pow( getMotorPower(d), 2.0 ) * 
+		pow( UTILS_GUESSED_PROP_EFFICIENCY, 2.0 ) * 
+		pow( UTILS_GUESSED_ELEC_EFFICIENCY, 2.0 ) * 
+		( pow(inchToMeter(
+				d.getPropeller()->getPropSize()
+			),2.0)/2.f ) *
+		UTILS_AIR_DENSITY;
+	
+	return (float)pow(inside_cuberoot, 0.333);
+}

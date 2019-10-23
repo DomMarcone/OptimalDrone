@@ -5,6 +5,7 @@
 #include <Drone.hpp>
 
 #include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
 

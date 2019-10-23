@@ -55,10 +55,12 @@ void populate_vector( vector<PartInterface*>& pv ){
 	
 }
 
-void main(){
+int main(){
 	std::vector<PartInterface*> partVector;
 	
 	populate_vector(partVector);
 	
 	cout << "Done." << endl;
+
+	return 0;
 }

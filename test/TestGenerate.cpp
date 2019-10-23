@@ -67,7 +67,7 @@ void populate_vector( vector<Kit*>& pv ){
 	
 }
 
-void main(){
+int main(){
 	vector<Kit*> partVector;
 	AnalyzePermutation ap;
 	Drone d;
@@ -85,4 +85,7 @@ void main(){
 	generatePermutations(partVector, 0, d, ap);
 	
 	cout << "Done." << endl;
+
+	return 0;
 }
+

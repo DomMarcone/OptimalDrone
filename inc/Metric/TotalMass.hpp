@@ -11,7 +11,7 @@ class TotalMass : public MetricInterface {
 private :
 public :
 	TotalMass();
-	
+
 	float calculate(Drone &d);
 };
 

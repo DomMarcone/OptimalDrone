@@ -24,9 +24,9 @@
 
 #define UTILS_AIR_DENSITY 1.225f // kg/m3
 
-#define UTILS_ETERS_PER_INCH 0.0254f;
+#define UTILS_METERS_PER_INCH 0.0254f;
 
-inline float inchToMeter(float i){	return i * UTILS_ETERS_PER_INCH;	}
+inline float inchToMeter(float i){	return i * UTILS_METERS_PER_INCH;	}
 
 float getMass(Drone& d){
 	float result = d.getFlightController()->getMass();
@@ -46,14 +46,16 @@ float getMotorPower(Drone& d){
 
 float getStaticThrust(Drone& d){
 	//Based off of the equations in https://aviation.stackexchange.com/a/8822
-	float inside_cuberoot = 
-		pow( getMotorPower(d), 2.0 ) * 
-		pow( UTILS_GUESSED_PROP_EFFICIENCY, 2.0 ) * 
-		pow( UTILS_GUESSED_ELEC_EFFICIENCY, 2.0 ) * 
+	float efficiency = UTILS_GUESSED_PROP_EFFICIENCY * sinf( d.getPropeller()->getPitch() );
+
+	float inside_cuberoot =
+		pow( getMotorPower(d), 2.0 ) *
+		pow( efficiency, 2.0 ) *
+		pow( efficiency, 2.0 ) *
 		( pow(inchToMeter(
 				d.getPropeller()->getPropSize()
 			),2.0)/2.f ) *
 		UTILS_AIR_DENSITY;
-	
+
 	return (float)pow(inside_cuberoot, 0.333);
 }
